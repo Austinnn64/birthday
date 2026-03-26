@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Dishant 🎂</title>
+  <link rel="stylesheet" href="birthday.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎂</text></svg>" />
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+
+<div class="page">
+
+  <!-- Music Control -->
+  <div style="position:fixed;bottom:24px;right:24px;z-index:100;">
+    <button id="musicBtn" style="
+      background: rgba(201,169,110,0.12);
+      border: 1px solid rgba(201,169,110,0.3);
+      color: #c9a96e;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      padding: 9px 18px;
+      border-radius: 100px;
+      cursor: pointer;
+      backdrop-filter: blur(12px);
+      transition: all 0.3s ease;
+    ">🎵 Play Music</button>
+  </div>
+
+  <!-- ── HERO ── -->
+  <section class="bday-hero">
+    <p class="bday-date" id="bdayDate">🎉 &nbsp; Today is your not day, it's our day &nbsp; 🎉</p>
+
+    <h1>
+      Happy<br>
+      <em>Birthday</em>
+    </h1>
+    <p class="bday-name">Dishant is <span id="typeword" style="color:#c9a96e;border-right:2px solid #c9a96e;padding-right:3px;"></span></p>
+
+    <!-- Cake Scene -->
+    <div class="cake-scene">
+
+      <!-- Stars -->
+      <span class="star" style="top:10px;left:10px;--dur:3.2s;--delay:0s;">✨</span>
+      <span class="star" style="top:20px;right:15px;--dur:2.8s;--delay:0.5s;">⭐</span>
+      <span class="star" style="top:60px;left:0px;--dur:3.5s;--delay:1s;">✨</span>
+      <span class="star" style="top:40px;right:0px;--dur:3s;--delay:0.2s;">🌟</span>
+      <span class="star" style="top:5px;left:50%;--dur:2.5s;--delay:0.8s;">✨</span>
+
+      <!-- Candles on top -->
+      <div class="candles" style="top:18px;">
+        <div class="candle">
+          <div class="candle-glow"></div>
+          <div class="candle-flame"></div>
+          <div class="candle-body gold"></div>
+        </div>
+        <div class="candle">
+          <div class="candle-glow"></div>
+          <div class="candle-flame"></div>
+          <div class="candle-body pink"></div>
+        </div>
+        <div class="candle">
+          <div class="candle-glow"></div>
+          <div class="candle-flame"></div>
+          <div class="candle-body blue"></div>
+        </div>
+      </div>
+
+      <!-- Cake tiers -->
+      <div class="cake-base">
+        <!-- Tier 2 (top) -->
+        <div class="cake-tier-2" style="position:relative;">
+          <div class="cake-frosting" style="position:absolute;top:-8px;width:100%;display:flex;justify-content:space-around;padding:0 8px;">
+            <div class="frosting-blob" style="background:rgba(201,169,110,0.45);border-color:rgba(201,169,110,0.3);"></div>
+            <div class="frosting-blob" style="background:rgba(201,169,110,0.45);border-color:rgba(201,169,110,0.3);"></div>
+            <div class="frosting-blob" style="background:rgba(201,169,110,0.45);border-color:rgba(201,169,110,0.3);"></div>
+          </div>
+          <!-- Decorations -->
+          <div style="display:flex;justify-content:center;align-items:center;height:100%;gap:6px;font-size:10px;">
+            <span>🖕</span><span>🖕</span><span>🖕 sex tape</span>
+          </div>
+        </div>
+        <!-- Tier 1 (bottom) -->
+        <div class="cake-tier-1" style="position:relative;">
+          <div class="cake-frosting" style="position:absolute;top:-10px;width:100%;display:flex;justify-content:space-around;padding:0 12px;">
+            <div class="frosting-blob"></div>
+            <div class="frosting-blob"></div>
+            <div class="frosting-blob"></div>
+            <div class="frosting-blob"></div>
+          </div>
+          <!-- Decorations -->
+          <div style="display:flex;justify-content:center;align-items:center;height:100%;gap:8px;font-size:11px;padding-top:8px;">
+            <span>🎉</span><span>🎂</span><span>🎈</span>
+          </div>
+        </div>
+        <!-- Plate -->
+        <div style="width:180px;height:10px;background:linear-gradient(180deg,rgba(201,169,110,0.3),rgba(201,169,110,0.1));border-radius:50%;margin:0 auto;filter:blur(2px);"></div>
+      </div>
+    </div>
+
+    <!-- Floating emojis -->
+    <div style="position:absolute;inset:0;pointer-events:none;overflow:hidden;">
+      <span style="position:absolute;font-size:20px;top:15%;left:8%;animation:starFloat 4s ease-in-out infinite;--delay:0s;">🎈</span>
+      <span style="position:absolute;font-size:16px;top:25%;right:10%;animation:starFloat 3.5s ease-in-out infinite;animation-delay:0.8s;">🎊</span>
+      <span style="position:absolute;font-size:18px;top:70%;left:6%;animation:starFloat 5s ease-in-out infinite;animation-delay:1.2s;">✨</span>
+      <span style="position:absolute;font-size:14px;top:60%;right:8%;animation:starFloat 3.8s ease-in-out infinite;animation-delay:0.4s;">🎉</span>
+      <span style="position:absolute;font-size:22px;top:80%;left:50%;animation:starFloat 4.5s ease-in-out infinite;animation-delay:2s;">🌟</span>
+    </div>
+
+  </section>
+
+  <!-- ── LETTER SECTION ── -->
+  <section class="letter-section">
+    <div class="letter-card" id="letterCard">
+      <p class="letter-header">— a letter, just for you —</p>
+
+      <div class="letter-body">
+        <p>
+          Happy birthday Dishanttt 🎂 you are an amazing friend of mine and we had a lot of laughter in the DDS VCs and tysm for forming DDS and keeping some things in control — I hope that your birthday goes well and everything will be so good for youuuu.
+        </p>
+        <p>
+          Happiest birthday brooo, and everything will go alright and since you believe in every god I just wanna say like — from everywhere, blessings are coming to youuu. Like god will bless you and keep you happy always and may joy and peace always stay with you and your life be filled with good things. And like even in tough times you stay strong and things get better for you and yeahhh just good vibes and blessings all around for you brooo 🙏
+        </p>
+        <p>
+          And sorry dude I didn't have much time to do stuff and I really want you to have fun and enjoy your birthday mannn. I just really wanted to <span class="letter-highlight">prank you on your birthday behehhehehhe</span> and yeahhh I wish I could have done more but still I hope this makes you smile even a little 😄
+        </p>
+        <p>
+          And yeah enjoy your day, eat good stuff, chill a lot and don't stress about anything today — just have funnn. And yeah we will def have more fun times in VCs again and laugh like idiots again lmaooo 😂
+        </p>
+        <p>
+          Happy birthday once again brooo 🎉
+        </p>
+
+        <div class="letter-bless">
+          أسأل الله أن يحفظك ويسعدك ويبارك في حياتك ويجعل أيامك كلها فرح وراحة 🤲<br><br>
+          May Jesus keep you happy ✝️ &nbsp;·&nbsp; May David keep you happy ✡️<br>
+          May Krishna keep you happy 🙏 &nbsp;·&nbsp; May Waheguru keep you happy 🪯<br>
+          May Buddha keep you happy ☸️<br><br>
+          <span style="color:var(--accent);">From everywhere — just happiness and blessings for you brooo 💫</span><br><br>
+          Happiesttt birthdayyy once againnn 🎂
+        </div>
+
+        <p style="margin-top:20px;font-size:13px;color:var(--text-muted);font-style:italic;">
+          And sorry I didn't have much time and some things are happening rn but I hope you like this ❤️
+        </p>
+      </div>
+
+      <p class="letter-sign">with love, your DDS bro 🎊</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bday-footer">
+    <div class="footer-emoji">🎂</div>
+    <p class="footer-text" style="letter-spacing:0.15em;">HAPPY BIRTHDAY DISHANT · DDS FOR LIFE</p>
+  </footer>
+
+</div>
+
+<script src="birthday.js"></script>
+</body>
+</html>

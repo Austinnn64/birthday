@@ -1,0 +1,363 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #06060d;
+  --accent: #c9a96e;
+  --accent2: #e8c4f0;
+  --accent3: #7eb8f7;
+  --text: #f0ece4;
+  --text-muted: rgba(240,236,228,0.55);
+  --glass: rgba(255,255,255,0.04);
+  --glass-border: rgba(255,255,255,0.08);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#bg-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Page sex section nig */
+.page {
+  position: relative;
+  z-index: 1;
+}
+
+.bday-hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 24px 80px;
+}
+
+.bday-date {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 32px;
+  opacity: 0;
+  animation: riseIn 1s ease 0.3s forwards;
+}
+
+.bday-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(52px, 9vw, 110px);
+  font-weight: 700;
+  line-height: 1.0;
+  margin-bottom: 8px;
+  opacity: 0;
+  animation: riseIn 1s ease 0.5s forwards;
+}
+
+.bday-hero h1 em {
+  font-style: italic;
+  color: var(--accent);
+  display: block;
+}
+
+.bday-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 5vw, 56px);
+  font-style: italic;
+  color: var(--accent2);
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: riseIn 1s ease 0.7s forwards;
+}
+
+.cake-scene {
+  position: relative;
+  width: 200px;
+  height: 220px;
+  margin: 0 auto 48px;
+  opacity: 0;
+  animation: riseIn 1s ease 0.9s forwards;
+}
+
+.cake-base {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.cake-tier-1 {
+  width: 160px;
+  height: 60px;
+  background: linear-gradient(180deg, #2a1f3d 0%, #1a1228 100%);
+  border: 1px solid rgba(201,169,110,0.3);
+  border-radius: 6px 6px 8px 8px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.cake-tier-1::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  height: 20px;
+  background: linear-gradient(180deg, #c9a96e44, #c9a96e22);
+  border-radius: 50%;
+  border-top: 2px solid rgba(201,169,110,0.5);
+}
+
+.cake-tier-2 {
+  width: 120px;
+  height: 50px;
+  background: linear-gradient(180deg, #1e1535 0%, #150f28 100%);
+  border: 1px solid rgba(232,196,240,0.3);
+  border-radius: 6px 6px 4px 4px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.cake-tier-2::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 135px;
+  height: 16px;
+  background: linear-gradient(180deg, #e8c4f044, #e8c4f022);
+  border-radius: 50%;
+  border-top: 2px solid rgba(232,196,240,0.4);
+}
+
+.cake-frosting {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 10px;
+  position: absolute;
+  width: 100%;
+  top: -5px;
+}
+
+.frosting-blob {
+  width: 16px;
+  height: 18px;
+  background: rgba(232,196,240,0.5);
+  border-radius: 50% 50% 40% 40%;
+  border: 1px solid rgba(232,196,240,0.3);
+}
+
+.candles {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+}
+
+.candle {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.candle-body {
+  width: 8px;
+  height: 30px;
+  border-radius: 2px;
+  position: relative;
+}
+
+.candle-body.gold { background: linear-gradient(180deg, #c9a96e, #8a6830); }
+.candle-body.pink { background: linear-gradient(180deg, #f0a0c0, #c06080); }
+.candle-body.blue { background: linear-gradient(180deg, #7eb8f7, #4070c0); }
+
+.candle-flame {
+  width: 10px;
+  height: 18px;
+  background: radial-gradient(ellipse at 50% 80%, #ffe000 0%, #ff8800 50%, transparent 100%);
+  border-radius: 50% 50% 40% 40%;
+  position: relative;
+  animation: flicker 0.15s ease-in-out infinite alternate;
+  filter: blur(0.5px);
+}
+
+.candle-glow {
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 24px;
+  background: radial-gradient(circle, rgba(255,200,0,0.4), transparent);
+  border-radius: 50%;
+  animation: glowPulse 0.8s ease infinite alternate;
+}
+
+.star {
+  position: absolute;
+  font-size: 14px;
+  animation: starFloat var(--dur, 3s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+  opacity: 0.7;
+}
+
+/* ── LETTER SECTION ── */
+.letter-section {
+  padding: 80px 24px 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.letter-card {
+  max-width: 680px;
+  width: 100%;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 56px 52px;
+  backdrop-filter: blur(20px);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.letter-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.letter-card::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(201,169,110,0.06), transparent);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.letter-card::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: -80px;
+  width: 250px; height: 250px;
+  background: radial-gradient(circle, rgba(126,184,247,0.05), transparent);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.letter-header {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  margin-bottom: 28px;
+}
+
+.letter-body {
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--text);
+  font-weight: 300;
+}
+
+.letter-body p + p { margin-top: 20px; }
+
+.letter-highlight {
+  color: var(--accent2);
+  font-style: italic;
+}
+
+.letter-bless {
+  margin-top: 24px;
+  padding: 20px 24px;
+  background: rgba(201,169,110,0.05);
+  border-left: 2px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-muted);
+}
+
+.letter-sign {
+  margin-top: 36px;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--text-muted);
+  text-align: right;
+}
+
+.bday-footer {
+  padding: 40px 24px 60px;
+  text-align: center;
+}
+
+.footer-emoji {
+  font-size: 32px;
+  margin-bottom: 12px;
+  animation: float 3s ease infinite;
+}
+
+.footer-text {
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+}
+
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes flicker {
+  0% { transform: scaleX(1) scaleY(1); }
+  100% { transform: scaleX(0.85) scaleY(1.1) rotate(3deg); }
+}
+
+@keyframes glowPulse {
+  from { opacity: 0.5; transform: translateX(-50%) scale(0.9); }
+  to { opacity: 1; transform: translateX(-50%) scale(1.1); }
+}
+
+@keyframes starFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+  50% { transform: translateY(-15px) rotate(20deg); opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes confettiFall {
+  0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+@media (max-width: 600px) {
+  .letter-card { padding: 32px 24px; }
+}

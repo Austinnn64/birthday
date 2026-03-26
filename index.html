@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For You dishu 🎂</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎂</text></svg>" />
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<nav class="topbar">
+  <a href="birthday.html" class="vote-btn">✨ Vote Sivy Please</a>
+</nav>
+
+<main class="hero">
+  <p class="hero-eyebrow">A little something for you</p>
+  <h1 class="hero-title">You've got<br><span>a letter</span></h1>
+  <p class="hero-subtitle">Someone left this here for you</p>
+
+  <div class="envelope-wrap floating" id="envelopeWrap">
+    <div class="envelope">
+      <div class="letter-peek">
+        <p class="letter-peek-text">Happy Birthday<br>Dishant 🎉</p>
+      </div>
+      <div class="envelope-flap"></div>
+      <div class="envelope-left"></div>
+      <div class="envelope-right"></div>
+      <div class="envelope-bottom"></div>
+      <div class="envelope-body"></div>
+      <div class="envelope-seal">🎂</div>
+    </div>
+    <p class="envelope-hint">click to open</p>
+  </div>
+</main>
+
+<div class="modal-overlay" id="permModal">
+  <div class="modal">
+    <div class="modal-icon">📬</div>
+    <h2>Open the letter?</h2>
+    <p>This will open your special birthday message.<br>
+       We just need permission to reveal what's inside.<br>
+       <em style="color: var(--accent); font-size:11px;"> Also can you bend down 👀</em>
+    </p>
+    <div class="modal-buttons">
+      <button class="btn-allow" id="allowBtn">Yes, open it!</button>
+      <button class="btn-deny" id="denyBtn">Maybe later</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
